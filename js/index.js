@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street <br> Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -40,3 +40,59 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// Nav bar
+
+const nav = document.querySelectorAll('nav a');
+nav.forEach((item,i) => item.textContent = siteContent['nav'][`nav-item-${i+1}`])
+
+//Cta
+
+const ctaH1 = document.querySelector('.cta-text h1');
+ctaH1.innerHTML = `DOM<br> Is<br> Awesome`;
+
+const btn = ctaH1.nextElementSibling;
+btn.textContent = 'Get Started'
+
+const ctaImg = document.querySelector('#cta-img');
+ctaImg.src = siteContent['cta']['img-src'];
+
+// Main Content
+
+const topContent= document.querySelector('.top-content');
+const topFirst = topContent.firstElementChild;
+const topSecond = topFirst.nextElementSibling;
+topFirst.firstElementChild.textContent = siteContent['main-content']['features-h4'];
+topSecond.firstElementChild.textContent = siteContent['main-content']['about-h4'];
+topFirst.lastElementChild.textContent = siteContent['main-content']['features-content'];
+topSecond.lastElementChild.textContent = siteContent['main-content']['about-content'];
+
+// Middle Content 
+
+const midImg = document.querySelector('.middle-img');
+midImg.src = siteContent['main-content']['middle-img-src'];
+
+// Bottom Content 
+
+const botContent = document.querySelectorAll('.bottom-content .text-content');
+const botContent1 = botContent[0];
+const botContent2 = botContent[1];
+const botContent3 = botContent[2];
+
+botContent1.firstElementChild.textContent = siteContent['main-content']['services-h4'];
+botContent1.lastElementChild.textContent = siteContent['main-content']['services-content'];
+botContent2.firstElementChild.textContent = siteContent['main-content']['product-h4'];
+botContent2.lastElementChild.textContent = siteContent['main-content']['product-content'];
+botContent3.firstElementChild.textContent = siteContent['main-content']['vision-h4'];
+botContent3.lastElementChild.textContent = siteContent['main-content']['vision-content']
+
+// contact
+const contactH4 = document.querySelector('.contact h4')
+contactH4.textContent = siteContent['contact']['contact-h4'];
+
+const contactPs = document.querySelectorAll('.contact p');
+contactPs[0].innerHTML = siteContent['contact']['address'];
+contactPs[1].textContent = siteContent['contact']['phone'];
+contactPs[2].textContent = siteContent['contact']['email'];
+
+
